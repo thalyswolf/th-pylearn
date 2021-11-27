@@ -1,14 +1,15 @@
 from abc import ABC, abstractmethod
+from typing import List
 
 
 class DatabaseContract(ABC):
 
     @abstractmethod
-    def extract_X(self) -> None:
+    def extract_X(self, start_predictor_index: int, end_predictor_index: int) -> List[List]:
         pass
 
     @abstractmethod
-    def extract_Y(self) -> None:
+    def extract_Y(self, classifier_index: int) -> List:
         pass
 
     @abstractmethod
