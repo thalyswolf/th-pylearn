@@ -1,2 +1,4 @@
 *.icloud
 *.cache
+local_test.py
+__pycache__
