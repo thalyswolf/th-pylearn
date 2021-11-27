@@ -1,6 +1,6 @@
 from typing import List
 
 class PreProcessingResponse():
-    x_training: List
-    y_training: List[List]
-    y_test: List[List]
+    X: List
+    Y_training: List[List]
+    Y_test: List[List]
