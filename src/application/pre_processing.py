@@ -35,9 +35,9 @@ class PreProcessingApplication():
         if self._pre_processing_config.get_keep_same_scale():
             response.X = self._scaler.scale(response.X)
 
-        response.X, response.Y, response.X_training, response.Y_training = self._splitter(response.X, 
-                                                                                        response.Y, 
-                                                                                        self._pre_processing_config.get_percent_test())
+        response.X, response.Y, response.X_training, response.Y_training = self._splitter.split(response.X, 
+                                                                                                response.Y,
+                                                                                                self._pre_processing_config.get_percent_test())
        
         # TODO To implement auto detect outlier
         # TODO To implement auto isnull data
