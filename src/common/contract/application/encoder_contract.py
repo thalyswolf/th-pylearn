@@ -7,3 +7,4 @@ class EncoderContract(ABC):
     @abstractmethod
     def encode(self, params: List[List]) -> List[List]:
         pass
+
