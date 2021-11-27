@@ -1,22 +1,18 @@
-from src.helpers.enum.learning_algorithms import LearningAlgorithms
+from src.application.pre_processing import PreProcessingApplication
+from src.common.entity.pre_processing_response import PreProcessingResponse
+from src.helpers.enum.database_types import DatabaseTypes
+
 from src.helpers.errors import NotImplementedYetException
+from src.factory import get_database_contract
 
 class ThPyLearn():
-
-    learning_algorithm = LearningAlgorithms.DEFAULT_LEARNING_ALGORITHM
-
-    def __init__(self, learning_algorithm: int = None):
-        if learning_algorithm is not None:
-            self.learning_algorithm = learning_algorithm
-
-        print(self.learning_algorithm)
-
-
-    def training():
+    def __init__(self) -> None:
         raise NotImplementedYetException
 
-    def predict():
-        raise NotImplementedYetException
+class ThPreProcessing():
+    def __init__(self, database_type: int = DatabaseTypes.DEFAULT_DATABASE_TYPE):
+        self.database_type = database_type
+        self.database_contract = get_database_contract(self.database_type, {})
 
-    def generate_matrix_confustion():
-        raise NotImplementedYetException
+    def pre_processing(self) -> PreProcessingResponse:
+        return PreProcessingApplication(self.database_contract).execute()
