@@ -1,0 +1,1 @@
+from src.commmon.contract.application import LearnContract
