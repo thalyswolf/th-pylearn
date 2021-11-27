@@ -3,8 +3,8 @@ from src.common.contract.entity.learn import LearnContract
 
 class BayesianLearn(LearnContract):
     
-    def training():
-        pass
+    def training(self):
+        print('BayesianLearn! Training ...')
 
-    def predict():
+    def predict(self):
         pass
