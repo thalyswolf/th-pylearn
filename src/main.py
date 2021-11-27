@@ -3,11 +3,14 @@ from src.helpers.errors import NotImplementedYetException
 
 class ThPyLearn():
 
-    learning_algorithm = LearningAlgorithms().get_default_learning_algorithm()
+    learning_algorithm = LearningAlgorithms.DEFAULT_LEARNING_ALGORITHM
 
     def __init__(self, learning_algorithm: int = None):
         if learning_algorithm is not None:
             self.learning_algorithm = learning_algorithm
+
+        print(self.learning_algorithm)
+
 
     def training():
         raise NotImplementedYetException
