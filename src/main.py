@@ -6,6 +6,9 @@ from src.helpers.enum.database_types import DatabaseTypes
 
 from src.helpers.errors import NotImplementedYetException
 from src.factory import get_database_contract
+from src.infra.encoder import Encoder
+from src.infra.scaler import Scaler
+from src.infra.splitter import Splitter
 
 class ThPyLearn():
     def __init__(self) -> None:
@@ -22,5 +25,13 @@ class ThPreProcessing():
         self.pre_processing_config = pre_processing_config
 
     def pre_processing(self, start_predictor_index: int, end_predictor_index: int, classifier_index: int) -> PreProcessingResponse:
-        return PreProcessingApplication(self.pre_processing_config, self.database_contract)\
+        encoder, scaler, splitter = Encoder, Scaler, Splitter
+
+        return PreProcessingApplication(self.pre_processing_config, 
+                                        self.database_contract,
+                                        encoder, 
+                                        scaler, 
+                                        splitter
+                                        )\
                                         .execute(start_predictor_index, end_predictor_index, classifier_index)
+
